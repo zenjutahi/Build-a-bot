@@ -2,8 +2,8 @@
   <div class="content">
     <button class="add-to-cart" @click="addToCart()">Add to cart </button>
     <div class="top-row">
-      <div class="top part">
-        <div class="robot-name">
+      <div class="top part" :style="headBackgroundStyle">
+        <div :class="[titleBackgroundClass, 'robot-name']">
           {{selectedRobot.head.title}}
           <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
         </div>
@@ -58,7 +58,7 @@
 
 <script>
 import availableParts from '../data/parts';
-
+import createdHookMixin from './created-hook-mixin';
 function getPreviousValidIndex(index, length) {
   const deprecatedIndex = index - 1;
   return deprecatedIndex < 0 ? length - 1 : deprecatedIndex;
@@ -82,7 +82,16 @@ export default {
       selectedBaseIndex: 0,
     };
   },
+  mixins: [createdHookMixin],
   computed: {
+    titleBackgroundClass() {
+      return this.selectedRobot.head.onSale ? 'sale-border' : '';
+    },
+    headBackgroundStyle() {
+      return {
+        backgroundColor: this.selectedRobot.head.onSale ? 'AliceBlue' : 'white',
+      };
+    },
     selectedRobot() {
       return {
         head: availableParts.heads[this.selectedHeadIndex],
@@ -144,15 +153,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .part {
   position: relative;
   width:165px;
   height:165px;
   border: 3px solid #aaa;
 }
-.part img {
-  width:165px;
+.part {
+  img {
+    width:165px;
+  }
 }
 .top-row {
   display:flex;
@@ -259,5 +270,8 @@ td, th {
 }
 .cost {
   text-align: right;
+}
+.sale-border {
+  background-color: AliceBlue;
 }
 </style>
