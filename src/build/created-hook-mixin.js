@@ -1,4 +1,4 @@
-export default{
+export default {
   created() {
     console.log('component created');
   },
