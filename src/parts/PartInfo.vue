@@ -13,7 +13,7 @@ import parts from '../data/parts';
 export default {
   name: 'PartInfo',
   props: {
-    partType: { type: String},
+    partType: { type: String },
     id: {
       type: [Number, String],
       validator(value) {
