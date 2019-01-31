@@ -2,11 +2,20 @@
   <div>
     <h1>Browse Parts</h1>
     <ul class="menu">
-      <li>Heads</li>
-      <li>Arms</li>
-      <li>Torsos</li>
-      <li>Bases</li>
+      <li>
+        <router-link :to="{ name: 'BrowseHeads', params: {} }">Heads</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'BrowseArms', params: {} }">Arms</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'BrowseTorsors', params: {} }">Torsos</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'BrowseBases', params: {} }">Bases</router-link>
+      </li>
     </ul>
+    <router-view></router-view>
   </div>
 </template>
 
