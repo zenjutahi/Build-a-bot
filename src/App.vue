@@ -19,7 +19,7 @@
     </header>
     <div class="container">
       <aside class="aside">
-        <router-view name="aside"/>
+        <router-view name="sidebar"/>
       </aside>
       <main>
         <router-view />
@@ -45,7 +45,7 @@ body {
 }
 main {
   padding: 30px;
-  background-color: white;
+  background-color: AliceBlue;
   width: 964px;
   min-height: 300px;
 }
@@ -73,7 +73,7 @@ ul {
   color: inherit;
 }
 .router-link-active {
-  color: white;
+  color: AliceBlue;
 }
 .container {
   display: flex;
