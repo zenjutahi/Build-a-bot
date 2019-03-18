@@ -19,11 +19,6 @@
       <button class="add-to-cart" @click="addToCart()">Add to cart </button>
     </div>
     <div class="top-row">
-      <!-- <div class="top part" :style="headBackgroundStyle"> -->
-        <!-- <div :class="[titleBackgroundClass, 'robot-name']">
-          {{selectedRobot.head.title}}
-          <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
-        </div> -->
         <PartSelector
           :parts ="availableParts.heads"
           position="top"
@@ -87,7 +82,7 @@ export default {
   mixins: [createdHookMixin],
   computed: {
     availableParts() {
-      return this.$store.state.parts;
+      return this.$store.state.robots.parts;
     },
     titleBackgroundClass() {
       return this.selectedRobot.head.onSale ? 'sale-border' : '';
